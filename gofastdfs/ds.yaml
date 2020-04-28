@@ -18,12 +18,12 @@ spec:
    restartPolicy: Always
    containers:
      - name: nginx-godfs
-       image: 192.168.2.100:5000/osmagic/godfs:v1.0
+       image: registry.cn-chengdu.aliyuncs.com/devops_2019/godfs:v1.0
        imagePullPolicy: IfNotPresent
        ports:
        - containerPort: 8095
-       command: ["sleep","111111"]
-       #command: ["/bin/sh","/dfs/dfs_star.sh"]
+       #command: ["sleep","111111"]
+       command: ["/bin/sh","/dfs/dfs_star.sh"]
        volumeMounts:
        - name: godfs-data-disk
          mountPath: /dfs/files

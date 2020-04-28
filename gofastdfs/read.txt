@@ -4,3 +4,7 @@ docker build -t  registry.cn-chengdu.aliyuncs.com/devops_2019/godfs:v1.0  ./
 
 
 kubectl label node    10.10.8.170   godfs=true   2>/dev/null
+ansible dfs1 -m shell  -a  "mkdir  -pv  /data/godfs_data  &&  chmod  -R  755 /data/godfs_data"
+mkdir  -pv  /data/godfs_data  &&  chmod  -R  755 /data/godfs_data
+kubectl delete  -f ds.yaml
+kubectl delete  -f svc.yaml

@@ -1,0 +1,40 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: godfs-ui
+spec:
+  selector:
+    matchLabels:
+      app: godfs-ui
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: godfs-ui
+    spec:
+     containers:
+       - name: godfs-ui
+         image: registry.cn-chengdu.aliyuncs.com/devops_2019/godfs-ui:v1.0
+         imagePullPolicy: IfNotPresent
+         ports:
+           - containerPort: 8088
+             name: tcp-dfs
+         command: ["sleep","9999"]
+        #  command: ["/bin/sh","9999"]
+         volumeMounts:
+            - name: pvc-dfsui-volume
+              mountPath: "/data"
+            # - name: cm-chfs-configfiles
+            #   mountPath: "/config"
+     volumes:
+     - name: pvc-dfsui-volume
+       persistentVolumeClaim:
+         claimName: godfs-ui-data
+    #  - name: cm-chfs-configfiles
+    #    configMap:
+    #      name: cm-chfs-configfiles
+    #      items:
+    #      - key: key-chfs-conf2
+    #        path: godfs-ui.ini
+    #  nodeSelector:
+    #   godfs-ui-app-gpu: "true"
