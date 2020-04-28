@@ -19,8 +19,9 @@ spec:
          ports:
            - containerPort: 8088
              name: tcp-dfs
-         command: ["sleep","9999"]
-        #  command: ["/bin/sh","9999"]
+         #command: ["sleep","9999"]
+         command: ["/bin/sh","/dfs/dfs_ui_start.sh"]
+
          volumeMounts:
             - name: pvc-dfsui-volume
               mountPath: "/data"
