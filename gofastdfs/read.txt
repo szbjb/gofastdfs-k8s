@@ -1,0 +1,6 @@
+docker login --username=9645425m registry.cn-chengdu.aliyuncs.com
+docker build -t  registry.cn-chengdu.aliyuncs.com/devops_2019/godfs:v1.0  ./
+
+
+
+kubectl label node    10.10.8.170   godfs=true   2>/dev/null

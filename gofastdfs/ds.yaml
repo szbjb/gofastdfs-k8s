@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: nginx-godfs
+  labels:
+    app: nginx-godfs
+spec:
+ selector:
+  matchLabels:
+   app: nginx-godfs
+ updateStrategy:
+  type: RollingUpdate
+ template:
+  metadata:
+    labels:
+     app: nginx-godfs
+  spec:
+   restartPolicy: Always
+   containers:
+     - name: nginx-godfs
+       image: 192.168.2.100:5000/osmagic/godfs:v1.0
+       imagePullPolicy: IfNotPresent
+       ports:
+       - containerPort: 8095
+       command: ["sleep","111111"]
+       #command: ["/bin/sh","/dfs/dfs_star.sh"]
+       volumeMounts:
+       - name: godfs-data-disk
+         mountPath: /dfs/files
+         subPath: data
+   volumes:
+   - name: godfs-data-disk
+     hostPath:
+            path: /data/godfs_data
+            type: ""
+   hostNetwork: true
+   nodeSelector:
+                godfs: "true"
