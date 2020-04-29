@@ -6,7 +6,7 @@ ENV INSTALL_DIR  /root/
 
 
 RUN  chmod 777 -R  /opt/dfs  && \
-      mkdir  -pv  /dfs
+      mkdir  -pv  /dfs  &&\
       apt update  -y  && \
       apt install iproute2   -y  && \
 	  apt install vim  -y  && \

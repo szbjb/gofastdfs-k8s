@@ -23,7 +23,7 @@ spec:
        ports:
        - containerPort: 8095
        #command: ["sleep","111111"]
-       command: ["/bin/sh","/dfs/dfs_star.sh"]
+       command: ["/bin/sh","/opt/dfs/dfs_star.sh"]
        volumeMounts:
        - name: godfs-data-disk
          mountPath: /dfs
