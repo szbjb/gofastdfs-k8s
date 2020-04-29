@@ -26,7 +26,7 @@ spec:
        command: ["/bin/sh","/dfs/dfs_star.sh"]
        volumeMounts:
        - name: godfs-data-disk
-         mountPath: /dfs/files
+         mountPath: /dfs
          subPath: data
        - name: cm-dfs-configfiles
          mountPath: "/config"

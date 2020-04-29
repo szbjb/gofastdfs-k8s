@@ -1,3 +1,0 @@
-2020-04-21 11:39:56 [INF] [fileserver.go:3751] [main.init.0] succes init log access
-2020-04-21 11:39:56 [INF] [fileserver.go:414] [main.ParseConfig] {:8095 [http://192.168.2.228:8095] group1 false true [] 1800 true 192.168.2.228:38095 true [] [] default {abc@163.com abc smtp.163.com:25}  false 600 0 true http://192.168.2.228:8095 md5 1 true [0.0.0.0] false false true false true false  false true true 0 false false false 0 0 0 0 0 0 0 0 0 0}
-2020-04-21 11:39:56 [INF] [fileserver.go:416] [main.ParseConfig] config parse success
