@@ -28,11 +28,19 @@ spec:
        - name: godfs-data-disk
          mountPath: /dfs/files
          subPath: data
+       - name: cm-dfs-configfiles
+         mountPath: "/config"
    volumes:
    - name: godfs-data-disk
      hostPath:
             path: /data/godfs_data
             type: ""
+   - name: cm-dfs-configfiles
+     configMap:
+       name: cm-dfs-configfiles
+       items:
+       - key: key-dfs-conf01
+         path: cfg.json.bak
    hostNetwork: true
    nodeSelector:
                 godfs: "true"
